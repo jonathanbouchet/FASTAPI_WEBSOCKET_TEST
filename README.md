@@ -5,3 +5,9 @@ WebSocket is a realtime technology that enables bidirectional, full-duplex commu
 # References
 - https://www.youtube.com/watch?v=ADVsjLHevtY
 - https://github.com/codingwithroby/Youtube/tree/main/2023/fastapi-websockets
+
+# Render
+to run on `Render`
+```commandline
+uvicorn main:app --host 0.0.0.0 --port 10000 --reload
+```
