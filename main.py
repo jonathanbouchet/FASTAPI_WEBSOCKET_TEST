@@ -28,7 +28,8 @@ html = """
         <script>
             var client_id = Date.now()
             document.querySelector("#ws-id").textContent = client_id;
-            var ws = new WebSocket(`ws://localhost:10000/ws/${client_id}`);
+            # var ws = new WebSocket(`ws://localhost:10000/ws/${client_id}`);
+            var ws = new WebSocket(`ws://websocket-chat-0eer.onrender.com:10000/ws/${client_id}`);
             ws.onmessage = function(event) {
                 var messages = document.getElementById('messages')
                 var message = document.createElement('li')
@@ -82,6 +83,7 @@ async def websocket_endpoint(websocket: WebSocket, client_id: int):
             data = await websocket.receive_text()
             await manager.send_personal_message(f"You wrote: {data}", websocket)
             await manager.broadcast(f"Client #{client_id} says: {data}")
+            print(f"client id: {client_id}, data :{data}")
     except WebSocketDisconnect:
         manager.disconnect(websocket)
         await manager.broadcast(f"Client #{client_id} has left the chat")
