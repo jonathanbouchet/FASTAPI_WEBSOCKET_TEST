@@ -11,3 +11,11 @@ to run on `Render`
 ```commandline
 uvicorn main:app --host 0.0.0.0 --port 10000 --reload
 ```
+
+# Version 2
+- using:
+    - `main2.py`
+    - `static/ws.js`
+    - `templates/socket.html`
+- reference: https://www.tutorialspoint.com/fastapi/fastapi_websockets.htm
+- same as version 1 but breaks down the `html` and the `js` files
